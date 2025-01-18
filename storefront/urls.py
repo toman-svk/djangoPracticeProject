@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
+import debug_toolbar
 
 def home(request):
     return HttpResponse("Welcome to the homepage!")
@@ -25,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),
     path('', home),  # Add this line to define a root URL
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
